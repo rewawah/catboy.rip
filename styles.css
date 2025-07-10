@@ -1,0 +1,41 @@
+body {
+    background-image: url('priv.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    text-align: center;
+    color: #fff;
+    margin-top: 270px;
+    font-size: 4rem;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;           /* Allow buttons to wrap to new lines */
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    gap: 20px 10px;            /* Optional: adds space between rows and columns */
+}
+
+.link-btn {
+    display: inline-block;
+    background: rgba(48, 48, 48, 0.7);
+    color: #cecece;
+    text-decoration: none;
+    padding: 15px 40px;
+    margin: 0 10px; /* Horizontal spacing between buttons */
+    border-radius: 8px;
+    font-size: 1.5rem;
+    transition: background 0.2s;
+}
+
+.link-btn:hover {
+    background: #fff;
+}
