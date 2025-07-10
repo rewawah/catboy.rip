@@ -41,26 +41,30 @@
          e.stopPropagation();
       });
 
+      // Detect if on a mobile device
+      const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
       const sound = document.getElementById('hover-sound');
       sound.volume = 0.3;
 
-      // Hover: normal speed
-      document.querySelectorAll('.link-btn').forEach(btn => {
-         btn.addEventListener('mouseenter', () => {
-            const hoverAudio = sound.cloneNode();
-            hoverAudio.volume = sound.volume;
-            hoverAudio.playbackRate = 1.0; // normal speed
-            hoverAudio.play();
-         });
+      // Only add audio events if not on mobile
+      if (!isMobile) {
+         document.querySelectorAll('.link-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+               const hoverAudio = sound.cloneNode();
+               hoverAudio.volume = sound.volume;
+               hoverAudio.playbackRate = 1.0; // normal speed
+               hoverAudio.play();
+            });
 
-         // Click: slower speed
-         btn.addEventListener('click', e => {
-            const clickAudio = sound.cloneNode();
-            clickAudio.volume = sound.volume;
-            clickAudio.playbackRate = 0.6; // slower
-            clickAudio.play();
+            btn.addEventListener('click', e => {
+               const clickAudio = sound.cloneNode();
+               clickAudio.volume = sound.volume;
+               clickAudio.playbackRate = 0.6; // slower
+               clickAudio.play();
+            });
          });
-      });
+      }
    </script>
 </body>
 </html>
