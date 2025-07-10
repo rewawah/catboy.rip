@@ -76,3 +76,7 @@ body.blurred > *:not(#welcome-overlay) {
     font-size: 1.2rem;
     margin: 0;
 }
+
+/* Favicon links - Updated based on suggested code change */
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
