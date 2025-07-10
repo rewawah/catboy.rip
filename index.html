@@ -17,12 +17,32 @@
       <a href="https://open.spotify.com/user/31gf7xpyw72whkzsugig2xlwmtyi?si=fc5cf7473321482b" class="link-btn" target="_blank" rel="noopener noreferrer">spotify</a>
       <a href="https://rateyourmusic.com/~wyd" class="link-btn" target="_blank" rel="noopener noreferrer">rate your music</a>
    </div>
+   <div id="welcome-overlay">
+      <div class="welcome-content">
+         <h2>Welcome</h2>
+         <p>Click anywhere</p>
+      </div>
+   </div>
    <script>
+      // Blur effect while overlay is visible
+      document.body.classList.add('blurred');
+
+      // Remove overlay and blur on click
+      document.getElementById('welcome-overlay').addEventListener('click', function () {
+         this.style.display = 'none';
+         document.body.classList.remove('blurred');
+      });
+
+      // Prevent interaction with site while overlay is open
+      document.getElementById('welcome-overlay').addEventListener('mousedown', function(e) {
+         e.stopPropagation();
+      });
+
+      // Existing hover sound code
       const sound = document.getElementById('hover-sound');
       sound.volume = 0.3; // Set volume to 30%
       document.querySelectorAll('.link-btn').forEach(btn => {
          btn.addEventListener('mouseenter', () => {
-            // Create a new audio instance for each hover so sounds overlap
             const hoverAudio = sound.cloneNode();
             hoverAudio.volume = sound.volume;
             hoverAudio.play();
